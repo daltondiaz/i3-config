@@ -45,6 +45,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec gnome-terminal 
+bindsym $mod+t exec /home/dalton/.local/kitty.app/bin/kitty 
+bindsym $mod+g exec ghostty 
 
 # start flameshot to print screen
 bindsym $mod+p exec flameshot gui
@@ -111,16 +113,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: Discord"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -186,6 +188,8 @@ bar {
 #        status_command i3status
     position top
     status_command i3blocks
+    i3bar_command i3bar --transparency
+    tray_output none
 }
 
 # Custom configuration
@@ -196,3 +200,30 @@ exec --no-startup-id xrandr --output eDP-1 --auto --right-of HDMI-1 &
 exec_always nitrogen --restore
 
 bindsym $mod+Ctrl+l exec "i3lock -i /home/dalton/Pictures/wallpapers/942959.png"
+
+# default gaps
+gaps inner 20 
+gaps top 0 
+gaps bottom 0
+
+# borders
+# smart_borders on
+# for_window [class="^.*"] border pixel 0
+
+#set $focusBorder #FE7C8E
+#set $unFocusBorder #7658a8
+#set $bg #ed6f81
+#set $fg #FFFFFF
+
+# CLASS                 BORDER                  BACK            TEXT            INDICATOR
+# client.focused          $focusBorder            $focusBorder    $focusBorder    $bg
+# client.focused_inactive $unFocusBorder          $unFocusBorder  $unFocusBorder  $unFocusBorder
+# client.unfocused        $unFocusBorder          $unFocusBorder  $unFocusBorder  $unFocusBorder
+# client.urgent           $unFocusBorder          $unFocusBorder  $unFocusBorder  $unFocusBorder
+
+# bar transparency
+
+#set $bgcolor    #523d6499
+#set $in-bgcolor #3636364D
+#set $focused-ws #523d6480
+#set $bar-color  #523d640D
